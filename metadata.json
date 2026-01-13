@@ -1,5 +1,5 @@
 {
-  "description": "Website institucional para KlipChat - Automação e Atendimento Inteligente.",
-  "requestFramePermissions": [],
-  "name": "App"
+  "name": "KlipChat - Automações Inteligentes",
+  "description": "Site institucional da KlipChat, empresa especializada em automação de atendimento inteligente e otimização de processos manuais.",
+  "requestFramePermissions": []
 }
