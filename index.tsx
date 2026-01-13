@@ -18,6 +18,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const WHATSAPP_LINK = "https://wa.me/558988052209";
 const INSTAGRAM_LINK = "https://www.instagram.com/klipchatoficial/";
+const LOGO_URL = "https://res.cloudinary.com/dmibs2bbf/image/upload/v1768341812/logo_halupt.jpg";
 
 // Componentes
 const Navbar = () => {
@@ -34,16 +35,15 @@ const Navbar = () => {
     <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'glass py-3 shadow-md' : 'bg-transparent py-6'}`}>
       <div className="container mx-auto px-6 flex justify-between items-center">
         <div className="flex items-center gap-2">
-          {/* Espaço para o logotipo logo.png */}
-          <div className="w-10 h-10 bg-brand rounded-lg flex items-center justify-center overflow-hidden">
+          {/* Logotipo oficial da KlipChat */}
+          <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center overflow-hidden shadow-sm border border-white/20">
             <img 
-              src="/logo.png" 
+              src={LOGO_URL} 
               alt="KlipChat Logo" 
               className="w-full h-full object-cover"
               onError={(e) => {
-                // Fallback caso a imagem não exista
                 e.currentTarget.style.display = 'none';
-                e.currentTarget.parentElement!.innerHTML = '<span class="text-white font-bold">K</span>';
+                e.currentTarget.parentElement!.innerHTML = '<span class="text-brand font-bold">K</span>';
               }}
             />
           </div>
