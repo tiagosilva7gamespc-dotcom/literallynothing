@@ -35,15 +35,14 @@ const Navbar = () => {
     <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'glass py-3 shadow-md' : 'bg-transparent py-6'}`}>
       <div className="container mx-auto px-6 flex justify-between items-center">
         <div className="flex items-center gap-2">
-          {/* Logotipo oficial da KlipChat */}
           <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center overflow-hidden shadow-sm border border-white/20">
             <img 
               src={LOGO_URL} 
               alt="KlipChat Logo" 
               className="w-full h-full object-cover"
               onError={(e) => {
-                e.currentTarget.style.display = 'none';
-                e.currentTarget.parentElement!.innerHTML = '<span class="text-brand font-bold">K</span>';
+                e.target.style.display = 'none';
+                e.target.parentElement.innerHTML = '<span class="text-brand font-bold">K</span>';
               }}
             />
           </div>
@@ -52,7 +51,6 @@ const Navbar = () => {
           </span>
         </div>
 
-        {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-8">
           <a href="#inicio" className={`font-medium transition-colors ${isScrolled ? 'text-gray-700 hover:text-brand' : 'text-white/80 hover:text-white'}`}>Início</a>
           <a href="#servicos" className={`font-medium transition-colors ${isScrolled ? 'text-gray-700 hover:text-brand' : 'text-white/80 hover:text-white'}`}>Serviços</a>
@@ -66,20 +64,18 @@ const Navbar = () => {
           </a>
         </div>
 
-        {/* Mobile Toggle */}
         <button className="md:hidden text-white" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
           {isMobileMenuOpen ? <X size={28} className={isScrolled ? 'text-gray-900' : 'text-white'} /> : <Menu size={28} className={isScrolled ? 'text-gray-900' : 'text-white'} />}
         </button>
       </div>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div 
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white w-full border-b"
+            className="md:hidden bg-white w-full border-b overflow-hidden"
           >
             <div className="flex flex-col p-6 gap-4 text-gray-800">
               <a href="#inicio" onClick={() => setIsMobileMenuOpen(false)}>Início</a>
@@ -97,7 +93,6 @@ const Navbar = () => {
 const Hero = () => {
   return (
     <section id="inicio" className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-brand">
-      {/* Background Decor */}
       <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-brand-dark/20 to-transparent"></div>
       <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-brand-light/20 rounded-full blur-3xl"></div>
       
@@ -116,7 +111,7 @@ const Hero = () => {
           </h1>
           <p className="text-xl text-white/80 mb-8 leading-relaxed">
             A KlipChat revoluciona a forma como sua empresa interage com o mundo. 
-            Automatizamos tarefas manuais para que sua equipe foque no que realmente importa: resultados.
+            Automatizamos tarefas manuais para que sua equipe foque no que realmente importa.
           </p>
           <div className="flex flex-wrap gap-4">
             <a 
@@ -168,7 +163,6 @@ const Hero = () => {
                   </div>
                 </div>
              </div>
-             {/* Decorative elements */}
              <div className="absolute -top-4 -right-4 w-24 h-24 bg-brand-light rounded-full blur-2xl opacity-50"></div>
           </div>
         </motion.div>
@@ -343,7 +337,6 @@ const App = () => {
       <Services />
       <Features />
       
-      {/* CTA Final */}
       <section className="py-24 bg-gray-50">
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-8 italic">Pronto para dar o próximo passo?</h2>
